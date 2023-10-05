@@ -2,7 +2,7 @@
 #include <unistd.h>
 
 /**
- * main -
+ * main - prints text to the standard error
  *
  * Return: always 1
  */
