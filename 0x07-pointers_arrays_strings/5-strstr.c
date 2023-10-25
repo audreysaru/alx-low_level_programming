@@ -5,49 +5,33 @@
  * @haystack: string being searched
  * @needle: substring
  * Return: needle or NULL
+ *
  */
-
-#include <stdio.h>
 
 char *_strstr(char *haystack, char *needle)
 {
+	char *sub;
+	char *h;
+
 	while (*haystack)
 	{
-	char *start = haystack;
-	char *sub = needle;
+	sub = needle;
+	h = haystack;
 
-	while (*haystack && *sub && *haystack == *sub)
+	while (*sub && *sub == *h)
 	{
-		haystack++;
 		sub++;
+		h++;
 	}
 
-	if (!*sub)
+	if (*sub == '\0')
 	{
-		return (start);
+	return (haystack);
 	}
-	haystack = start + 1;
+
+	haystack++;
 	}
 
 	return (NULL);
-}
-
-int main()
-{
-	char haystack[] = "Hello, this is a sample string.";
-	char needle[] = "is";
-
-	char *result = _strstr(haystack, needle);
-
-	if (result)
-	{
-	printf("Substring found: %s\n", result);
-	}
-	else
-	{
-	printf("Substring not found.\n");
-	}
-
-	return (0);
 }
 
